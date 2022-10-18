@@ -1,3 +1,3 @@
 <template>
-<div>...index page</div>
+<div class="text-3xl font-bold underline">...index page</div>
 </template>

@@ -15,6 +15,8 @@ function handleClose() {
   window.history.back();
   closePanel();
 }
+
+const {links, mediaLinks} = useLinks();
 </script>
 
 <template>
@@ -24,10 +26,7 @@ function handleClose() {
         <NuxtLink class="hidden sm:block sm:w-2/6 sm:leading-none sm:align-baseline sm:text-xl uppercase" to="/">Armin</NuxtLink>
         <NuxtLink class="sm:align-baseline sm:order-3 sm:hidden" to="/"><img class="logo" src="/img/logo_3.2.2.svg" alt="logo"></NuxtLink>
         <div class="text-lg flex flex-col sm:w-4/6 sm:flex-row justify-start sm:text-xl sm:leading-none gap-5">
-          <NuxtLink to="/projects">Projects</NuxtLink>
-          <NuxtLink to="/about">About</NuxtLink>
-          <NuxtLink to="/music">Music</NuxtLink>
-          <NuxtLink to="/contact">Contact</NuxtLink>
+          <NuxtLink v-for="link in links" :key="link" :to="link.route" activeClass="nav-link-active" class="nav-link">{{ link.name }}</NuxtLink>
         </div>
         <span class="hidden sm:block"></span>
       </header>
@@ -38,9 +37,7 @@ function handleClose() {
           <h3 class="">&copy; Armin Salihović</h3>
         </aside>
         <div class="md:col-span-4 col-span-6 flex flex-row gap-5">
-          <NuxtLink to="https://github.com/armin-salihovic">Github</NuxtLink>
-          <NuxtLink to="https://www.linkedin.com/in/armin-salihovic/">LinkedIn</NuxtLink>
-          <NuxtLink to="mailto:hello@armin.ba">hello@armin.ba</NuxtLink>
+          <NuxtLink v-for="link in mediaLinks" :key="link" :to="link.route" class="link-underline">{{ link.name }}</NuxtLink>
         </div>
       </div>
     </div>

@@ -11,9 +11,7 @@ body {
     font-weight: 400;
 }
 
-.logo {
-    height: 3.75rem;
-}
+/* Font weights */
 
 .fw-400 {
     font-weight: 400;
@@ -31,6 +29,12 @@ body {
     font-weight: 700;
 }
 
+/* Logo */
+
+.logo {
+    height: 3.75rem;
+}
+
 @media (max-width: 1023px) {
     .logo {
         height: 3rem;
@@ -42,6 +46,9 @@ body {
         height: 3rem;
     }
 }
+
+/* Panel Class */
+/* Class which is applied when the side panel is opened on the projects page */
 
 .html-panel .content, .html-panel .content header {
     color: white;
@@ -114,4 +121,28 @@ body {
     .html-panel .panel header {
         min-width: calc(1536px - 8rem);
     }
+}
+
+/* Navigation links */
+
+.nav-link, .link-underline {
+    position: relative;
+}
+
+.nav-link-active::after, .nav-link:hover::after, .link-underline::after {
+    position: absolute;
+    content: "";
+    background-color: #111111;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    right: 0;
+}
+
+.link-underline::after {
+    bottom: 0 !important;
+}
+
+.link-underline:hover::after {
+    background-color: #999;
 }

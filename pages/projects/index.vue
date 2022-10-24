@@ -3,7 +3,7 @@
     <PageHeader title="Projects" :isPanelOpen="isPanelOpen" />
     <div v-if="data" class="projects-list leading-normal grid grid-cols-1 lg:grid-cols-2 gap-10 pb-10">
       <NuxtLink v-for="project in data.data" :to="`projects/${project.slug}`">
-        <img class="w-full mb-3" :src="project.image" alt="">
+        <img alt="" class="lazyload w-full mb-3" :src="project.image_lqpi" :data-src="project.image" />
         <h2 class="font-bold">{{ project.title }}</h2>
         <p class="text-gray-600">STM32 / HAL / C</p>
       </NuxtLink>
@@ -12,11 +12,14 @@
 </template>
 
 <script setup>
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
 const router = useRouter();
 
 const {openPanel, closePanel, isPanelOpen} = usePanel();
 
-const { data, pending, error, refresh } = await useFetch('http://127.0.0.1:8000/api/projects')
+const { data, pending, error, refresh } = await useFetch('http://127.0.0.1:8000/api/projects');
 
 const projects = useState('projects', () => []);
 
@@ -61,7 +64,7 @@ router.beforeEach((to, from, next)=>{
   }
 })
 
-onMounted(()=> {
+onMounted(() => {
   onpopstate = async () => {
     const regex = new RegExp(/\/projects\/.+/g);
 
@@ -74,7 +77,6 @@ onMounted(()=> {
     }
   };
 })
-
 
 useHead({
   title: `Projects | Armin Salihović`,

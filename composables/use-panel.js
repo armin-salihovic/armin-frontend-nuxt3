@@ -26,7 +26,9 @@ function openPanel(panelData) {
         panel.value.content = `
             <article>
                 <div class="pb-10">
-                  <img class="lazyload w-full bg-center" :src="${panelData.image_lqpi}" :data-src="${panelData.image}" src="${panelData.image}" alt="">                
+                <figure class="img-container mb-3" style="background-image:url('${panelData.image_lqpi}')">
+                    <img class="lazyload blur-up w-full w-full bg-center absolute" src="${panelData.image}" data-src="${panelData.image}" alt="">
+                </figure>
                 </div>
                 <div class="p-6 md:p-10">
                   ${panelData.content}

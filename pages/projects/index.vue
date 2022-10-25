@@ -1,15 +1,37 @@
 <template>
   <div class="p-6 sm:px-12">
     <PageHeader title="Projects" :isPanelOpen="isPanelOpen" />
-    <div v-if="data" class="projects-list leading-normal grid grid-cols-1 lg:grid-cols-2 gap-10 pb-10">
+    <article v-if="data" class="projects-list leading-normal grid grid-cols-1 lg:grid-cols-2 gap-10 pb-10">
       <NuxtLink v-for="project in data.data" :to="`projects/${project.slug}`">
-        <img alt="" class="lazyload w-full mb-3" :src="project.image_lqpi" :data-src="project.image" />
+        <figure class="img-container mb-3" :style="`background-image:url('${project.image_lqpi}');`">
+          <img alt="" class="lazyload blur-up w-full absolute" :src="project.image" :data-src="project.image" />
+        </figure>
         <h2 class="font-bold">{{ project.title }}</h2>
         <p class="text-gray-600">STM32 / HAL / C</p>
       </NuxtLink>
-    </div>
+    </article>
   </div>
 </template>
+
+<style>
+.img-container {
+  padding-bottom: 56.228%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.blur-up {
+  opacity: 0;
+  transition: opacity 600ms ease, -webkit-filter 600ms ease;
+}
+
+.blur-up.lazyloaded {
+  opacity: 1;
+}
+</style>
 
 <script setup>
 import 'lazysizes';

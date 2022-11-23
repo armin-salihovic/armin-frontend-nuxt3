@@ -7,7 +7,9 @@
           <img alt="" class="lazyload blur-up w-full absolute" :src="project.image" :data-src="project.image" />
         </figure>
         <h2 class="font-bold">{{ project.title }}</h2>
-        <p class="text-gray-600">STM32 / HAL / C</p>
+        <div class="flex gap-2">
+          <p v-for="(technology, index) in project.technologies" class="text-gray-600">{{ technology }}<span v-if="index !== project.technologies.length-1">,</span> </p>
+        </div>
       </NuxtLink>
     </article>
   </div>

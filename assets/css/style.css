@@ -33,11 +33,13 @@ body {
 
 .logo {
     height: 3.75rem;
+    padding: 5px 0;
 }
 
 @media (max-width: 1023px) {
     .logo {
         height: 3rem;
+        padding: 0;
     }
 }
 
@@ -96,6 +98,35 @@ body {
     cursor: pointer;
 }
 
+.panel__container .img-container {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.panel__container .img-container img {
+    object-fit: cover;
+    object-position: center top;
+    width: 100%;
+}
+
+.image-square {
+    padding-bottom: 100% !important;
+}
+
+@media (min-width: 1000px) {
+    .panel__container .img-container {
+        padding-bottom: 40%;
+        height: 615px;
+    }
+
+    .panel__container .img-container img {
+        height: 615px;
+    }
+}
+
 @media (max-width: 	1279px) {
     .html-panel .content {
         display: none;
@@ -110,11 +141,15 @@ body {
 }
 
 .html-panel .panel header {
-    min-width: calc(1536px - 14rem);
+    min-width: calc(1760px - 14rem);
 }
 
 .html-panel .panel {
     padding-top: 68px;
+}
+
+.max-w-screen-3xl {
+    max-width: 1760px;
 }
 
 @media (max-width: 	1535px) {
@@ -145,4 +180,14 @@ body {
 
 .link-underline:hover::after {
     background-color: #999;
+}
+
+/* Block editor styles */
+
+.block-paragraph p {
+    padding-bottom: 1.5rem;
+}
+
+.block-paragraph p:last-child {
+    padding-bottom: 0;
 }

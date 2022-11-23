@@ -4,6 +4,10 @@
 
 <script setup>
 const {links, mediaLinks, getFirstLinks, lastLink} = useLinks();
+
+useHead({
+  title: `Armin Salihović - Software Engineer`,
+});
 </script>
 
 <template>
@@ -11,7 +15,7 @@ const {links, mediaLinks, getFirstLinks, lastLink} = useLinks();
     <div class="flex justify-between pb-10 lg:pb-28 flex-col-reverse sm:flex-row items-start gap-16">
       <h1 class="text-5xl lg:text-6xl lg:tracking-widest flex flex-col lg:flex-row whitespace-pre fw-500"><span>Armin </span><span>Salihović</span></h1>
       <div class="flex justify-between w-full sm:mt-auto">
-        <a class="sm:ml-auto sm:align-baseline" href="/"><img class="logo" src="/img/logo_3.2.2.svg" alt="logo"></a>
+        <a class="sm:ml-auto sm:align-baseline" href="/"><img class="logo" src="/img/logo_4.2.svg" alt="logo"></a>
         <div class="sm:hidden text-lg flex flex-col justify-start leading-none gap-5 ">
           <NuxtLink v-for="link in links" :key="link" :to="link.route" class="nav-link">{{ link.name }}</NuxtLink>
         </div>

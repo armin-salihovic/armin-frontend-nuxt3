@@ -44,8 +44,8 @@ const {links, mediaLinks} = useLinks();
       </div>
     </div>
     <div class="panel__container overflow-hidden" @click="handlePanelClick" ref="panelBackground1">
-      <div class="panel cursor-pointer absolute top-0 right-0 max-w-screen-2xl z-50 2xl:pl-56 xl:pl-32 lg:pl-0" ref="panelBackground2">
-        <header class="flex justify-between py-6 px-10 fixed top-0 bg-white leading-none text-xl cursor-default">
+      <div class="panel cursor-pointer absolute top-0 right-0 max-w-screen-3xl z-50 2xl:pl-56 xl:pl-32 lg:pl-0" ref="panelBackground2">
+        <header class="flex justify-between py-6 px-10 fixed top-0 bg-white leading-none text-xl cursor-default z-20">
           <h2 class="">{{ panel.title }}</h2>
           <div class="cursor-pointer fixed top-6 right-14" @click="handleClose">
             <div class="relative">Close</div>

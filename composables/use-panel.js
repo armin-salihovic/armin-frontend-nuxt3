@@ -24,19 +24,9 @@ function openPanel(panelData) {
 
         panel.value.title = panelData.title;
         panel.value.content = `
-            <article>
-                <div class="pb-10">
-                    <figure class="hidden xs:block img-container mb-3" style="background-image:url('${panelData.image_lqpi}');">
-                      <img class="lazyload blur-up w-full w-full bg-center absolute" src="${panelData.image}" data-src="${panelData.image}" alt="">
-                    </figure>
-                    <figure class="block xs:hidden img-container image-square mb-3" style="background-image:url('${panelData.image_mobile_lqpi}');">
-                      <img class="lazyload blur-up w-full w-full bg-center absolute" src="${panelData.image_mobile}" data-src="${panelData.image_mobile}" alt="">
-                    </figure>
-                </div>            
-                <div class="p-6 md:p-10">
-                  ${panelData.content}
-                </div>
-            </article>
+           <article>
+               <div class="article-content">${panelData.content}</div>
+           </article>
         `;
 
         document.body.classList.add('html-panel')

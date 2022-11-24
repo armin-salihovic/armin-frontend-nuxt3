@@ -3,7 +3,7 @@
     <PageHeader title="Projects" :isPanelOpen="isPanelOpen" />
     <article v-if="data" class="projects-list leading-normal grid grid-cols-1 lg:grid-cols-2 gap-10 pb-10">
       <NuxtLink v-for="project in data.data" :to="`projects/${project.slug}`">
-        <figure class="img-container mb-3" :style="`background-image:url('${project.image_lqpi}');`">
+        <figure class="projects-img-container mb-3" :style="`background-image:url('${project.image_lqpi}');`">
           <img alt="" class="lazyload blur-up w-full absolute" :src="project.image" :data-src="project.image" />
         </figure>
         <h2 class="font-bold">{{ project.title }}</h2>
@@ -16,22 +16,13 @@
 </template>
 
 <style>
-.img-container {
+.projects-img-container {
   padding-bottom: 56.228%;
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   overflow: hidden;
-}
-
-.blur-up {
-  opacity: 0;
-  transition: opacity 600ms ease, -webkit-filter 600ms ease;
-}
-
-.blur-up.lazyloaded {
-  opacity: 1;
 }
 </style>
 

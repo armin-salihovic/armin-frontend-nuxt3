@@ -113,16 +113,38 @@ body {
 
 .article-content img {
     object-fit: cover;
-    object-position: center top;
     width: 100%;
 }
 
 .article-content .img-container {
-    background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     overflow: hidden;
+}
+
+.object-position-top {
+    object-position: center top;
+}
+
+.object-position-center {
+    object-position: center center;
+}
+
+.object-position-bottom {
+    object-position: center bottom;
+}
+
+.bg-position-top {
+    background-position: center top;
+}
+
+.bg-position-center {
+    background-position: center center;
+}
+
+.bg-position-bottom {
+    background-position: center bottom;
 }
 
 @media (min-width: 1000px) {

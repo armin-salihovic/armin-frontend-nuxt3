@@ -26,7 +26,7 @@ const {links, mediaLinks} = useLinks();
         <div class="hidden sm:block sm:w-2/6 sm:leading-none sm:align-baseline sm:text-xl uppercase">
           <NuxtLink to="/">Armin</NuxtLink>
         </div>
-        <NuxtLink class="sm:align-baseline sm:order-3 sm:hidden" to="/"><img class="logo" src="/img/logo_3.2.2.svg" alt="logo"></NuxtLink>
+        <NuxtLink class="sm:align-baseline sm:order-3 sm:hidden" to="/"><img class="logo" src="/img/logo_4.2.svg" alt="logo"></NuxtLink>
         <div class="text-lg flex flex-col sm:w-4/6 sm:flex-row justify-start sm:text-xl sm:leading-none gap-5">
           <NuxtLink v-for="link in links" :key="link" :to="link.route" activeClass="nav-link-active" class="nav-link">{{ link.name }}</NuxtLink>
         </div>

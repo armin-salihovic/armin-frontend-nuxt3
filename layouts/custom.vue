@@ -45,11 +45,11 @@ const {links, mediaLinks} = useLinks();
     </div>
     <div class="panel__container overflow-hidden" @click="handlePanelClick" ref="panelBackground1">
       <div class="panel cursor-pointer absolute top-0 right-0 max-w-screen-3xl z-50 2xl:pl-56 xl:pl-32 lg:pl-0" ref="panelBackground2">
-        <header class="flex justify-between py-6 px-10 fixed top-0 bg-white leading-none text-xl cursor-default z-20">
+        <header class="flex justify-between py-6 px-6 sm:px-10 fixed top-0 bg-white leading-none text-xl cursor-default z-20">
           <h2 class="">{{ panel.title }}</h2>
-          <div class="cursor-pointer fixed top-6 right-14" @click="handleClose">
-            <div class="relative">Close</div>
-            <img class="h-2.5 absolute right-16 top-1/4" src="/img/icon-cross.svg" alt="cross icon"/>
+          <div class="cursor-pointer fixed top-6 right-6 sm:right-14" @click="handleClose">
+              <div class="relative hidden sm:block">Close</div>
+              <img class="icon-cross sm:h-2.5 h-3.5 block sm:absolute right-16 top-1/4" src="/img/icon-cross.svg" alt="cross icon"/>
           </div>
         </header>
         <div class="inner-panel bg-white cursor-default" v-html="panel.content">
@@ -61,4 +61,10 @@ const {links, mediaLinks} = useLinks();
 
 <style>
 @import '~/assets/css/style.css';
+
+@media (max-width: 639px) {
+  .icon-cross {
+    margin-top: 3px;
+  }
+}
 </style>

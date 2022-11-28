@@ -117,6 +117,7 @@ body {
 }
 
 .article-content .img-container {
+    padding-bottom: 56.228%;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;

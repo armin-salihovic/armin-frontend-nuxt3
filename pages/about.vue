@@ -30,7 +30,9 @@ const route = useRoute();
 
 const projects = useState('about', () => []);
 
-const { data, pending, error, refresh } = await useFetch(`http://127.0.0.1:8000/api/about`, {
+const config = useRuntimeConfig();
+
+const { data, pending, error, refresh } = await useFetch(`${config.public.apiBase}/about`, {
   key: route.params.slug,
 })
 </script>

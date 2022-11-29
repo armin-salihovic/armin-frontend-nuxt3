@@ -66,6 +66,7 @@
 
 <script setup>
 const settings = useState('settings');
+const config = useRuntimeConfig();
 
 const messageBox = ref({
   open: false,
@@ -98,5 +99,5 @@ definePageMeta({
   layout: 'custom',
 })
 
-const { data, pending, error, refresh } = await useFetch(`http://127.0.0.1:8000/api/home`);
+const { data, pending, error, refresh } = await useFetch(`${config.public.apiBase}/home`);
 </script>

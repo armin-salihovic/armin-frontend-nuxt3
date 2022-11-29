@@ -43,7 +43,9 @@ const router = useRouter();
 
 const {openPanel, closePanel, isPanelOpen} = usePanel();
 
-const { data, pending, error, refresh } = await useFetch('http://127.0.0.1:8000/api/projects');
+const config = useRuntimeConfig();
+
+const { data, pending, error, refresh } = await useFetch(`${config.public.apiBase}/projects`);
 
 const projects = useState('projects', () => []);
 
@@ -55,7 +57,7 @@ async function getProject(path) {
   }
 
   try {
-    const { data } = await useFetch(`http://127.0.0.1:8000/api${path}`, {key: path});
+    const { data } = await useFetch(`${config.public.apiBase}${path}`, {key: path});
     project = data.value.data;
     projects.value.push({path: path, ...project});
     return project;

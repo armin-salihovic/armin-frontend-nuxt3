@@ -7,7 +7,9 @@
 <script setup>
 const settings = useState('settings', () => []);
 
-const { data , pending, error, refresh } = await useFetch(`http://127.0.0.1:8000/api/settings`);
+const config = useRuntimeConfig();
+
+const { data , pending, error, refresh } = await useFetch(`${config.public.apiBase}/settings`);
 
 settings.value = data;
 

@@ -40,6 +40,7 @@
 
 <script setup>
 const settings = useState('settings');
+const config = useRuntimeConfig();
 
 definePageMeta({
   layout: 'custom',
@@ -87,7 +88,7 @@ async function sendEmail() {
   if(validateForm()) return;
 
   try {
-    await $fetch(`http://127.0.0.1:8000/api/send-email`,{
+    await $fetch(`${config.public.apiBase}/send-email`,{
       method: 'post',
       body: emailData.value,
     });

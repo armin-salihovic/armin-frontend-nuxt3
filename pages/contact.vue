@@ -1,5 +1,12 @@
 <template>
   <div class="p-6 sm:px-12">
+    <Head>
+      <Title>{{ settings['contact_meta_title'] }}</Title>
+      <Meta name="description" :content="settings['contact_meta_description']" />
+      <Meta property="og:title" :content="settings['contact_meta_title']" />
+      <Meta property="og:image" :content="settings['contact_og']" />
+      <Meta property="og:description" :content="settings['contact_meta_description']" />
+    </Head>
     <PageHeader title="Contact" />
       <div class="flex pb-16 grid grid-cols-6 text-base md:text-lg gap-4">
         <aside class="md:col-span-2 col-span-6">
@@ -32,6 +39,8 @@
 </template>
 
 <script setup>
+const settings = useState('settings');
+
 definePageMeta({
   layout: 'custom',
 })
@@ -87,8 +96,8 @@ async function sendEmail() {
     openMessageBox('success', 'Message Sent!', ['Thanks for reaching out!', 'I\'ll get back to you as soon as possible! :)']);
     clearEmailData();
   } catch (e) {
-    if(e.data.errors === undefined) {
-      openMessageBox('fail', 'Unexpected Server Error', ['Oops... This is embarrassing... :(', 'Please email me directly at <a class="underline" href="mailto:hello@armin.ba">hello@armin.ba</a>']);
+    if(e.data === undefined || e.data.errors === undefined) {
+      openMessageBox('fail', 'Unexpected Server Error', ['Oops... This is embarrassing... :(', `Please email me directly at <a class="underline" target="_blank" href="mailto:${settings.value['social_email']}">${settings.value['social_email']}</a>`]);
     } else {
       const errors = [];
       for (let err of Object.keys(e.data.errors)) {

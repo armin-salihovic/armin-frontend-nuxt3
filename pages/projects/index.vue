@@ -1,5 +1,12 @@
 <template>
   <div class="p-6 sm:px-12">
+    <Head>
+      <Title>{{ settings['projects_meta_title'] }}</Title>
+      <Meta name="description" :content="settings['projects_meta_description']" />
+      <Meta property="og:title" :content="settings['projects_meta_title']" />
+      <Meta property="og:image" :content="settings['projects_og']" />
+      <Meta property="og:description" :content="settings['projects_meta_description']" />
+    </Head>
     <PageHeader title="Projects" :isPanelOpen="isPanelOpen" />
     <article v-if="data" class="projects-list leading-normal grid grid-cols-1 lg:grid-cols-2 gap-10 pb-10">
       <NuxtLink v-for="project in data.data" :to="`projects/${project.slug}`">
@@ -29,6 +36,8 @@
 <script setup>
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
+const settings = useState('settings');
 
 const router = useRouter();
 

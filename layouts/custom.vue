@@ -16,7 +16,9 @@ function handleClose() {
   closePanel();
 }
 
-const {links, mediaLinks} = useLinks();
+const {links} = useLinks();
+
+const settings = useState('settings');
 </script>
 
 <template>
@@ -39,7 +41,9 @@ const {links, mediaLinks} = useLinks();
           <h3 class="">&copy; Armin Salihović</h3>
         </aside>
         <div class="md:col-span-4 col-span-6 flex flex-row gap-5">
-          <NuxtLink v-for="link in mediaLinks" :key="link" :to="link.route" class="link-underline">{{ link.name }}</NuxtLink>
+          <NuxtLink :to="settings['social_github']" target="_blank" class="link-underline">GitHub</NuxtLink>
+          <NuxtLink :to="settings['social_linkedin']" target="_blank" class="link-underline">LinkedIn</NuxtLink>
+          <NuxtLink :to="`mailto:${settings['social_email']}`" target="_blank" class="link-underline">{{ settings['social_email'] }}</NuxtLink>
         </div>
       </div>
     </div>

@@ -4,6 +4,14 @@
     </NuxtLayout>
 </template>
 
+<script setup>
+const settings = useState('settings', () => []);
+
+const { data , pending, error, refresh } = await useFetch(`http://127.0.0.1:8000/api/settings`);
+
+settings.value = data;
+</script>
+
 <style>
 .noscroll {
   overflow: hidden;

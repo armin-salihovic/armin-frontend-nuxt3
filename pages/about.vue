@@ -1,5 +1,12 @@
 <template>
   <div>
+    <Head>
+      <Title>{{ settings['about_meta_title'] }}</Title>
+      <Meta name="description" :content="settings['about_meta_description']" />
+      <Meta property="og:title" :content="settings['about_meta_title']" />
+      <Meta property="og:image" :content="settings['about_og']" />
+      <Meta property="og:description" :content="settings['about_meta_description']" />
+    </Head>
     <article v-if="data">
       <div class="article-content" v-html="data.data.content"></div>
     </article>
@@ -9,6 +16,8 @@
 </template>
 
 <script setup>
+const settings = useState('settings');
+
 definePageMeta({
   layout: 'custom',
 })
